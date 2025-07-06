@@ -26,7 +26,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h2 class="mb-7 text-lg md:text-xl font-shamel font-bold text-gray-900 dark:text-white">
-                        تعزيز الأمان والتحكم
+                         {{ t('security.title') }}
                     </h2>
                     <p
                         class="flex gap-2 items-center mb-7 text-[16px] w-full font-shamel text-[#6d7279] dark:text-white font-[500]">
@@ -36,7 +36,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يضمن توثيق جميع داخل النظام. مما مراجعتها لاحقا.
+                         {{ t('security.logging') }}
                     </p>
                     <p
                         class="flex gap-2 items-center mb-7 text-[16px] w-full font-shamel text-[#6d7279] dark:text-white font-[500]">
@@ -46,7 +46,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يدعم إمكانية التحكم في الصلاحيات بحيث يمكن لكل مستخدم الوصول فقط إلي بيانات المسموح بها.
+                         {{ t('security.permissions') }}
                     </p>
 
                     <p
@@ -57,7 +57,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يحافظ علي سرية المعلومات باستخدام تقنيات تشفير متقدمة.
+                         {{ t('security.encryption') }}
                     </p>
 
                 </div>

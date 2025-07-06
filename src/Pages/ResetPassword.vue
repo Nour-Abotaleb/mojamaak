@@ -45,7 +45,7 @@ const handleResetPassword = () => {
             v-model="confirmPassword"
             type="password"
             required
-            class="w-full px-4 py-2 border rounded-lg bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full px-4 py-2 mb-2 border rounded-lg bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="********"
           />
         </div>

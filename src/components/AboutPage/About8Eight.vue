@@ -2,27 +2,27 @@
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
+const { t, locale } = useI18n();
 // Sample FAQ data (you can replace this with your own questions and answers)
 const faqs = ref([
   {
-    question: "كيف يمكنني التسجيل؟",
-    answer: "يمكنك التسجيل عن طريق ملء النموذج المتوفر على موقعنا الإلكتروني.",
+    question: t("faq.q1"),
+    answer: t("faq.a1"),
     isOpen: false,
   },
   {
-    question: "هل يوجد رسوم للانضمام إلى المجمع؟",
-    answer: "لا، الانضمام إلى المجمع مجاني تمامًا.",
+    question: t("faq.q2"),
+    answer: t("faq.a2"), 
     isOpen: false,
   },
   {
-    question: "كيف أستطيع التواصل معكم؟",
-    answer:
-      "يمكنك التواصل معنا عبر البريد الإلكتروني أو الهاتف المتوفر في صفحة الاتصال.",
+    question: t("faq.q3"), 
+    answer: t("faq.a3"),
     isOpen: false,
   },
   {
-    question: "كيف أستطيع الحجز؟",
-    answer: "يمكنك الحجز من خلال زيارة موقعنا واختيار الخدمة المناسبة.",
+    question: t("faq.q4"),
+    answer:  t("faq.a4"), 
     isOpen: false,
   },
 ]);
@@ -37,7 +37,6 @@ const toggleFAQ = (index) => {
   });
 };
 
-const { t, locale } = useI18n();
 const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
 </script>
 
@@ -47,10 +46,10 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
       <div class="max-w-screen-md mx-auto mb-8" data-aos-duration="1700" data-aos="fade-up">
         <h2
           class="font-shamel text-center mb-6 text-2xl md:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-          الأسئلة الشائعة
+          {{ t('faq.title') }}
         </h2>
         <p class="font-shamel text-center mb-7 text-lg tracking-tight font-normal text-gray-600 dark:text-white">
-          إجابات علي أكثر شيوعا حول مجمعك
+           {{ t('faq.intro') }}
         </p>
       </div>
       <div data-aos-duration="1700" data-aos="fade-left"

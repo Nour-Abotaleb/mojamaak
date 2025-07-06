@@ -65,14 +65,14 @@ const handleLogin = () => {};
         </div>
 
         <!-- Submit -->
-        <router-link to="/mojamaak/admin-dashboard">
+        <div>
           <button
             type="submit"
             class="w-full bg-[#38A6DE] text-white py-2 rounded-md"
           >
             {{ t("loginPage.signin") }}
           </button>
-        </router-link>
+        </div>
       </form>
     </div>
   </div>

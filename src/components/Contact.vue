@@ -14,25 +14,24 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                 <!-- Heading -->
                 <h2
                     class="font-shamel text-center mb-6 text-2xl md:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                    لا تزال لديك أسئلة ؟
+                    {{ t('cta.title') }}
                 </h2>
                 <!-- Subheading -->
                 <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8">
-                    انضم إلي أكثر من +4000 مجمعع سكني يعتمدون علي مجمعك لإدارة ممتلكاتهم بكفاءة!
+                    {{ t('cta.subtitle') }}
                 </p>
                 <!-- Buttons -->
                 <div class="flex justify-center gap-4">
-                    <button class="px-4 py-3 bg-[#38a6de] text-white rounded-lg hover:bg-[#38a6de] transition-colors">
+                    <button class="py-2 w-32 bg-[#38a6de] text-white rounded-lg hover:bg-[#38a6de] transition-colors">
                         {{ t('pricing.start') }}
                     </button>
                     <button
-                        class="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white
+                        class="py-2 w-32 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white
                          hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                        تعرف على المزيد
+                         {{ t('cta.button') }} 
                     </button>
                 </div>
             </div>
-
         </div>
     </section>
 </template>

@@ -40,11 +40,11 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h3 class="mb-2 text-[17px] font-bold dark:text-white mt-2">
-                        إدارة المجمعات والشقق بسهولة
+                        {{ t('features.manageEasy') }}   
                     </h3>
                     <ul class="text-gray-500 px-2 text-[13px] font-[500] list-disc dark:text-gray-400">
-                        <li>إضافة وتعديل المجمعات السكنية والوحدات السكنية بسهولة</li>
-                        <li>متابعة حالة الشقق (متاحة / مشغولة)</li>
+                        <li>{{ t('features.manageProperties') }}</li>
+                        <li>{{ t('features.trackUnits') }}</li>
                     </ul>
                 </div>
                 <div class="mt-5">
@@ -66,11 +66,11 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h3 class="mb-2 text-[17px] font-bold dark:text-white mt-2">
-                        متابعة عمليات الدفع والاشتراكات
+                        {{ t('features.paymentTracking') }}
                     </h3>
                     <ul class="text-gray-500 px-2 text-[13px] font-[500] list-disc dark:text-gray-400">
-                        <li>تسجيل الدفعات المالية وجدولة المدفوعات</li>
-                        <li>إصدار فواتير وتقارير مالية دورية </li>
+                        <li>{{ t('features.recordPayments') }}</li>
+                        <li>{{ t('features.generateInvoices') }}</li>
                     </ul>
                 </div>
                 <div class="mt-5">
@@ -92,11 +92,11 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h3 class="mb-2 text-[17px] font-bold dark:text-white mt-2">
-                        نظام طلبات الصيانة الذكي
+                        {{ t('features.smartMaintenance') }}
                     </h3>
                     <ul class="text-gray-500 px-2 text-[13px] font-[500] list-disc dark:text-gray-400">
-                        <li>استقبال طلبات الصيانة من السكان ومعالجتها بكفاءة</li>
-                        <li>إسناد الطلبات لشركات الصيانة المعتمدة وتتبع حالتها </li>
+                        <li>{{ t('features.handleRequests') }}</li>
+                        <li>{{ t('features.assignToVendors') }}</li>
                     </ul>
 
                 </div>
@@ -120,11 +120,11 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h3 class="mb-2 text-[17px] font-bold dark:text-white mt-2">
-                        إشعارات وتنبيهات لحظية
+                        {{ t('features.realTimeNotifications') }}
                     </h3>
                     <ul class="text-gray-500 px-2 text-[13px] font-[500] list-disc dark:text-gray-400">
-                        <li>إرسال رسائل تنبيهية مباشرة للسكان والإداريين</li>
-                        <li>استلام إشعارات حول المدفوعات الصيانة. والعروض الجديدة.</li>
+                        <li>{{ t('features.sendAlerts') }}</li>
+                        <li>{{ t('features.receiveUpdates') }}</li>
                     </ul>
 
                 </div>

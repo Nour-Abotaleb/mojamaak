@@ -13,7 +13,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
             <div class="max-w-screen-md mx-auto mb-8 lg:mb-16" data-aos-duration="1700" data-aos="fade-up">
                 <h2 class="font-shamel text-center mb-7 text-2xl md:text-4xl  tracking-tight font-extrabold text-white">
-                    كيف نعمل
+                    {{ t('howWeWork.title') }}
                 </h2>
             </div>
             <div class="space-y-8 md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0"
@@ -48,10 +48,10 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h3 class="mb-2 text-[17px] font-normal text-center text-[#bfbfbf] mt-6">
-                        إضافة المجمعات والشقق
+                        {{ t('howWeWork.addCompounds') }}
                     </h3>
                     <ul class="text-[#8d8f8c] text-center px-2 text-[13px] font-[600] dark:text-gray-400">
-                        <li>تسجيل المجمعات السكنية ورطبها بالوحدات المتاحة.</li>
+                        <li>{{ t('howWeWork.addCompoundsDesc') }}</li>
                     </ul>
                 </div>
                 <div class="mt-5 mx-auto max-w-[230px]">
@@ -84,10 +84,10 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h3 class="mb-2 text-[17px] font-normal text-center text-[#bfbfbf] mt-6">
-                        تسجيل السكان وإدارة بياناتهم
+                        {{ t('howWeWork.registerResidents') }}
                     </h3>
                     <ul class="text-[#8d8f8c] text-center text-[13px] font-[600] dark:text-gray-400">
-                        <li>إضافة السكان مع تفاصيل الاتصال ونوع الإقامة</li>
+                        <li>{{ t('howWeWork.registerResidentsDesc') }}</li>
                     </ul>
                 </div>
                 <div class="max-w-[230px] mx-auto mt-5">
@@ -120,10 +120,10 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h3 class="mb-2 text-[17px] font-normal text-center text-[#bfbfbf] mt-6">
-                        متابعة طلبات الصيانة والدفعات المالية
+                         {{ t('howWeWork.trackRequests') }}
                     </h3>
                     <ul class="text-[#8d8f8c] text-center px-2 text-[13px] font-[600] dark:text-gray-400">
-                        <li>إدارة عمليات الدفع بسهولة ومراقبة طلبات الصيانة المرسلة</li>
+                        <li>{{ t('howWeWork.trackRequestsDesc') }}</li>
                     </ul>
                 </div>
 

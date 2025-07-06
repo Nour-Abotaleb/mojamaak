@@ -15,7 +15,7 @@ const messages = {
       login: "Login",
     },
     slider: {
-      welcome: "Welcome to the Future City",
+      welcome: "Welcome to Mojamaak",
       welcomeDescription:
         "We build the most advanced architectural structures and infrastructure to move society into a new era",
       future: "Enjoy the Future Now",
@@ -25,8 +25,8 @@ const messages = {
       creativityDescription:
         "We turn ideas into tangible reality with global quality and advanced technologies",
     },
-    about: {
-      whatIsYourComplex: "What is Your Complex?",
+    aboutMojamaak: {
+      whatIsYourComplex: "What is Mojamaak?",
       complexDescription:
         "Your Complex is an integrated platform for managing residential complexes. It makes it easier for owners and administrators to manage properties, residents, maintenance, and financial payments efficiently and easily.",
       personWorking: "Person working",
@@ -35,7 +35,19 @@ const messages = {
       learnMore: "Learn More",
     },
     features: {
-      whyYourComplex: "Why Your Complex?",
+      manageEasy: "Manage Compounds and Apartments Easily",
+      manageProperties: "Easily add and edit residential compounds and housing units.",
+      trackUnits: "Track apartment status (Available / Occupied).",
+      paymentTracking: "Monitor payments and subscriptions.",
+      recordPayments: "Record payments and schedule future ones.",
+      generateInvoices: "Generate periodic invoices and financial reports.",
+      smartMaintenance: "Smart Maintenance Request System",
+      handleRequests: "Receive and efficiently handle maintenance requests from residents.",
+      assignToVendors: "Assign requests to approved maintenance vendors and track their progress.",
+      realTimeNotifications: "Real-time Notifications and Alerts",
+      sendAlerts: "Send instant alert messages to residents and admins.",
+      receiveUpdates: "Receive updates about payments, maintenance, and new offers.",
+      whyYourComplex: "Why Mojamaak?",
       mainFeatures: "Core Features",
       systemAdvantages: "Key advantages offered by the system",
       apartmentManagement: "Apartment and Building Management",
@@ -50,8 +62,64 @@ const messages = {
       instantNotificationsDesc:
         "Live updates on maintenance, rentals, and offers",
     },
+   howWeWork: {
+    title: "How We Work",
+    addCompounds: "Add Compounds and Apartments",
+    addCompoundsDesc: "Register residential compounds and link them to available units.",
+    registerResidents: "Register Residents and Manage Their Data",
+    registerResidentsDesc: "Add residents with contact details and residency type.",
+    trackRequests: "Track Maintenance Requests and Payments",
+    trackRequestsDesc: "Easily manage payments and monitor submitted maintenance requests."
+    },
+    vision: {
+      title: "Our Goals and Vision",
+      intro: "Mojamaak provides a set of features that make residential compound management easier and more efficient, helping improve user experience and save time and effort."
+    },
+    realEstate: {
+      title: "Organize Real Estate Operations",
+      centralPlatform: "Offers a centralized platform to manage all compounds, apartments, and residents with ease.",
+      searchFilter: "Allows searching and filtering to quickly view any unit details.",
+      statusTracking: "Helps track the status of each unit (Available / Occupied / Under Maintenance) in real time."
+    },
+    payments: {
+      title: "Easily Track Requests and Payments",
+      accurateSystem: "Provides a precise system to record payments and schedule future ones.",
+      detailedReports: "Generates detailed financial reports showing income and overdue payments.",
+      exportInvoices: "Admins can export payment receipts and invoices with a single click."
+    },
+    maintenance: {
+      title: "Improve Maintenance and Services",
+      easyInterface: "Facilitates maintenance request management via an easy-to-use interface.",
+      requestStatus: "Allows tracking the status of each request (New / In Progress / Completed) in the dashboard.",
+      assignVendors: "Enables admins to quickly assign certified maintenance vendors and monitor their punctuality."
+    },
+    security: {
+      title: "Enhance Security and Control",
+      logging: "Ensures all operations are logged for easy future review.",
+      permissions: "Supports role-based permissions so each user accesses only the data they’re authorized to see.",
+      encryption: "Keeps data confidential using advanced encryption technologies."
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      intro: "Answers to the most common questions about Mojamaak",
+      q1: "How can I register?",
+      a1: "You can register by filling out the form on our website.",
+      q2: "Is there any fee to join the compound?",
+      a2: "No, joining the compound is completely free.",
+      q3: "How can I contact you?",
+      a3: "You can contact us via email or phone available on the Contact page.",
+      q4: "How can I make a reservation?",
+      a4: "You can make a reservation by visiting our website and choosing the appropriate service."
+      },
+    cta: {
+      title: "Still have questions?",
+      subtitle: "Join over 4,000 residential communities relying on Mojamaak to manage their properties efficiently!",
+      button: "Learn more"
+    },
     pricing: {
       pricing: "Pricing",
+      pricingPlan: "Pricing Plans in Mojamaak",
+      planDescription: "Choose the plan that fits your needs to efficiently manage residential communities. Mojamaak offers flexible plans suitable for various types of housing complexes, whether you manage a small property or a full residential project.",
       choosePlan: "Choose the best plan to manage your complex easily",
       choosePlanDesc:
         "Save time and effort with subscription plans. Start managing your residential complex efficiently and professionally",
@@ -75,6 +143,8 @@ const messages = {
       yasmine: "Yasmine Complex",
       price25: "25 AED",
       price40: "40 AED",
+      previous: "Previous",
+      next: "Next",
     },
     homeFive: {
       title: "Discover registered residential complexes in your complex",
@@ -108,6 +178,11 @@ const messages = {
       confirmPassword: "Confirm Password",
       resetPassword: "Reset Password",
     },
+    compounds: {
+      title: "Residential Compounds",
+      description: "Discover the best residential compounds registered in the Mojamaak system. You can browse full details of each compound—from its unique location to the number of available units, along with exclusive offers. Use the smart search feature to quickly and easily find the perfect compound that suits your needs!",
+      viewDetails: "View Details"
+    },
     footer: {
       overview: "Overview",
       aboutPortal: "About (Portal Name)",
@@ -136,17 +211,19 @@ const messages = {
         "All Rights Reserved to the Digital Government Authority © {year}",
       developedBy: "Developed and Maintained by (Entity Name)",
       lastUpdate: "Last Updated: 04/12/2020",
+      downloadApp: "Download the App",
+      quickLinks: "Quick Links"
     },
-    about: {
-      know: "تعرف علي نظام مجمعك",
-      knowDesc: 'نظام متكامل يوفر حلول إدارة المجمعات السكنية. يشمل إدارة العقارات. السكان. الصيانة. والإشعارات'
-  
-    },
-  },
-  ar: {
-    about: {
+    aboutPage: {
       know: "Learn about Your Complex",
       knowDesc: 'A comprehensive system for managing residential complexes. It includes property management, resident registration, maintenance tracking, and financial payments management, all in one platform.'
+    },
+
+  },
+  ar: {
+    aboutPage: {
+      know: "تعرف علي نظام مجمعك",
+      knowDesc: 'نظام متكامل يوفر حلول إدارة المجمعات السكنية. يشمل إدارة العقارات. السكان. الصيانة. والإشعارات'
   
     },
     homeFive: {
@@ -163,14 +240,67 @@ const messages = {
       yasmine: "مجمع الياسمين",
       price25: "25 درهم",
       price40: "40 درهم",
+      previous: "السابق",
+      next: "التالي",
+    },
+  howWeWork: {
+      title: "كيف نعمل",
+      addCompounds: "إضافة المجمعات والشقق",
+      addCompoundsDesc: "تسجيل المجمعات السكنية وربطها بالوحدات المتاحة.",
+      registerResidents: "تسجيل السكان وإدارة بياناتهم",
+      registerResidentsDesc: "إضافة السكان مع تفاصيل الاتصال ونوع الإقامة.",
+      trackRequests: "متابعة طلبات الصيانة والدفعات المالية",
+      trackRequestsDesc: "إدارة عمليات الدفع بسهولة ومراقبة طلبات الصيانة المرسلة."
+    },
+  vision: {
+    title: "أهدافنا و رؤيتنا",
+    intro: "يقدم \"مجمعك\" مجموعة من الفوائد التي تجعل إدارة المجمعات السكنية أكثر سهولة وكفاءة، مما يساعد في تحسين تجربة المستخدم وتوفير الوقت والجهد."
+    },
+  realEstate: {
+    title: "تنظيم العمليات العقارية",
+    centralPlatform: "يوفر منصة مركزية لإدارة جميع المجمعات، الشقق، والسكان بسهولة.",
+    searchFilter: "يتيح إمكانية البحث والتصفية لعرض تفاصيل أي وحدة سكنية بسرعة.",
+    statusTracking: "يساعد على تتبع حالة كل شقة (متاحة / مشغولة / تحت الصيانة) في الوقت الفعلي."
+    },
+    payments: {
+      title: "تتبع الطلبات والمدفوعات بسهولة",
+      accurateSystem: "يتيح نظامًا دقيقًا لتسجيل المدفوعات وجدولة الدفعات المالية.",
+      detailedReports: "يوفر تقارير مالية مفصلة توضح الإيرادات والمدفوعات المتأخرة.",
+      exportInvoices: "يمكن للإداريين تصدير إيصالات الدفع والفواتير بضغطة زر."
+    },
+    maintenance: {
+      title: "تحسين الصيانة والخدمات",
+      easyInterface: "يسهل إدارة طلبات الصيانة عبر واجهة سهلة الاستخدام.",
+      requestStatus: "يتيح تتبع حالة كل طلب (جديد / قيد التنفيذ / مكتمل) في لوحة التحكم.",
+      assignVendors: "يمكن للإدارة تعيين شركات صيانة معتمدة بسرعة ومعرفة مدى التزامها بالمواعيد."
+    },
+    security: {
+      title: "تعزيز الأمان والتحكم",
+      logging: "يضمن توثيق جميع العمليات داخل النظام، مما يسهل مراجعتها لاحقًا.",
+      permissions: "يدعم إمكانية التحكم في الصلاحيات بحيث يمكن لكل مستخدم الوصول فقط إلى البيانات المسموح بها.",
+      encryption: "يحافظ على سرية المعلومات باستخدام تقنيات تشفير متقدمة."
+    },
+    faq: {
+      title: "الأسئلة الشائعة",
+      intro: "إجابات على أكثر الأسئلة شيوعًا حول مجمعك",
+      q1: "كيف يمكنني التسجيل؟",
+      a1: "يمكنك التسجيل عن طريق ملء النموذج المتوفر على موقعنا الإلكتروني.",
+      q2: "هل يوجد رسوم للانضمام إلي المجمع؟",
+      a2: "لا، الانضمام إلي المجمع مجاني تماماً.",
+      q3: "كيف أستطيع التواصل معكم؟",
+      a3: "يمكنك التواصل معنا عبر البريد الإلكتروني أو الهاتف المتوفر في صفحة الاتصال.",
+      q4: "كيف أستطيع الحجز؟",
+      a4: "يمكنك الحجز من خلال زيارة موقعنا واختيار الخدمة المناسبة."
     },
     pricing: {
       pricing: "الاسعار",
+      pricingPlan: "خطط الأسعار في مجمعك",
+      planDescription: "اختر الخطة التي تناسب احتياجاتك لإدارة المجمعات السكنية بفعالية. نقدم لك مجمعك خططًا مرنة تناسب مختلف المجمعات السكنية، سواء كنت تدير مجمعًا صغيرًا أو مشروعًا سكنيًا متكاملاً.",
       choosePlan: "اختر الخطة المناسبة لإدارة مجمعك بسهولة",
       choosePlanDesc:
         "وفر وقتك وجهدك مع خطط الاشتراك المرنة. وابدأ في إدارة مجمعك السكني بكفاءة واحترافية",
       basic: "الباقة الاساسية",
-      basic1: "الباقة المقدمة",
+      basic1: "الباقة المتقدمة",
       basic2: "الباقة الاحترافية",
       monthly: "شهريا",
       unlimited: "إدارة المجمعات",
@@ -179,7 +309,7 @@ const messages = {
       unlimited3: "إدارة المدفوعات",
       unlimited4: "التقارير المالية",
       unlimited5: "دعم فني علي مدار الساعة",
-      start: "ابداء الان",
+      start: "ابدء الآن",
       popular1: "الأكثر شيوعًا",
     },
     nav: {
@@ -190,7 +320,7 @@ const messages = {
       partners: "الشركاء",
       contact: "تواصل معنا",
       search: "البحث",
-      language: "English",
+      language: "الإنجليزية",
       theme: "الوضع الليلي",
       login: "تسجيل الدخول"
     },
@@ -214,7 +344,24 @@ const messages = {
     common: {
       learnMore: "معرفة المزيد",
     },
+    cta: {
+      title: "لا تزال لديك أسئلة ؟",
+      subtitle: "انضم إلي أكثر من +4000 مجمع سكني يعتمدون على مجمعك لإدارة ممتلكاتهم بكفاءة!",
+      button: "تعرف على المزيد"
+    },
     features: {
+      manageEasy: "إدارة المجمعات والشقق بسهولة",
+      manageProperties: "إضافة وتعديل المجمعات السكنية والوحدات السكنية بسهولة.",
+      trackUnits: "متابعة حالة الشقق (متاحة / مشغولة).",
+      paymentTracking: "متابعة عمليات الدفع والاشتراكات",
+      recordPayments: "تسجيل الدفعات المالية وجدولة المدفوعات.",
+      generateInvoices: "إصدار فواتير وتقارير مالية دورية.",
+      smartMaintenance: "نظام طلبات الصيانة الذكي",
+      handleRequests: "استقبال طلبات الصيانة من السكان ومعالجتها بكفاءة.",
+      assignToVendors: "إسناد الطلبات لشركات الصيانة المعتمدة وتتبع حالتها.",
+      realTimeNotifications: "إشعارات وتنبيهات لحظية",
+      sendAlerts: "إرسال رسائل تنبيهية مباشرة للسكان والإداريين.",
+      receiveUpdates: "استلام إشعارات حول المدفوعات، الصيانة، والعروض الجديدة.",
       whyYourComplex: "لماذا مجمعك؟",
       mainFeatures: "الميزات الأساسية",
       systemAdvantages: "أهم المزايا التي يقدمها النظام",
@@ -253,6 +400,11 @@ const messages = {
       confirmPassword: "تأكيد كلمة المرور",
       resetPassword: "إعادة تعيين كلمة المرور",
     },
+    compounds: {
+      title: "المجمعات السكنية",
+      description: "اكتشف أفضل المجمعات السكنية المسجلة في نظام مجمعك. حيث يمكنك استعراض التفاصيل الكاملة لكل مجمع، من الموقع الفريد إلى عدد الوحدات المتاحة، بالإضافة إلى العروض الحصرية. استخدم خاصية البحث الذكي لتجد المجمع المثالي الذي يناسب احتياجاتك بسهولة وسرعة!",
+      viewDetails: "عرض التفاصيل"
+    },
     footer: {
       overview: "ملخص",
       aboutPortal: "حول (اسم البوابة)",
@@ -280,6 +432,8 @@ const messages = {
       copyright: "جميع الحقوق محفوظة لنظام مجمعك © {year}",
       developedBy: "تم تطويره وصيانته بواسطة (اسم الجهة)",
       lastUpdate: "تاريخ آخر تعديل: 04/12/2020",
+      downloadApp: "تحميل التطبيق",
+      quickLinks: "روابط سريعة"
     },
   },
 };

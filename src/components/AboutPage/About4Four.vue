@@ -14,12 +14,11 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
             <div class="max-w-screen-md mx-auto mb-8" data-aos-duration="1700" data-aos="fade-up">
                 <h2
                     class="font-shamel text-center mb-6 text-2xl md:text-4xl  tracking-tight font-extrabold text-gray-900 dark:text-white">
-                    أهدافنا ورؤياتنا
+                     {{ t('vision.title') }}
                 </h2>
                 <p
                     class="font-shamel text-center mb-7 text-lg tracking-tight font-normal text-gray-600 dark:text-white">
-                    يقدم "مجمعك" مجموعة من الفوائد التي تجعل إدارة المجمعات السكنية أكثر سهولة وكفاءة, مما يساعد في
-                    تحسين تجربة المستخدم وتوفير الوقت والجهد.
+                   {{ t('vision.intro') }}
                 </p>
             </div>
             <div class="gap-12 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-4
@@ -44,7 +43,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h2 class="mb-7 text-lg md:text-xl font-shamel font-bold text-gray-900 dark:text-white">
-                        تنظيم العمليات العقارية
+                        {{ t('realEstate.title') }}
                     </h2>
                     <p
                         class="flex gap-2 items-center mb-7 text-[16px] w-full font-shamel text-[#6d7279] dark:text-white font-[500]">
@@ -54,7 +53,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يوفر منصة مركزية لإدارة جميع المجمعات. الشقق. والسكان بسهولة
+                        {{ t('realEstate.centralPlatform') }}
                     </p>
                     <p
                         class="flex gap-2 items-center mb-7 text-[16px] w-full font-shamel text-[#6d7279] dark:text-white font-[500]">
@@ -64,7 +63,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يتيح إمكانية البحث والتصفية لعرض تفاصيل أي وحدة سكنية بسرعة.
+                        {{ t('realEstate.searchFilter') }}
                     </p>
 
                     <p
@@ -75,13 +74,10 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يساعد علي تتبع حالة كل شقة ( متاحة / مشغولة / تحت الصيانة ) في الوقت الفعلي.
+                        {{ t('realEstate.statusTracking') }}
                     </p>
-
                 </div>
-
             </div>
-
         </div>
     </section>
 </template>

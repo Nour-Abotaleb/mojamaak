@@ -13,11 +13,10 @@ const direction = computed(() => (locale.value === 'ar' ? 'rtl' : 'ltr'));
         <div class=" gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6 ">
             <div data-aos="fade-left" data-aos-duration="1500" 
                 class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                <h2 class="mb-7 text-4xl font-shamel font-bold text-gray-900 dark:text-white">{{
-                    t('about.whatIsYourComplex') }}</h2>
-                <p class="mb-7 text-[15px] font-shamel font-[500]">{{ t('about.complexDescription') }}</p>
+                <h2 class="mb-7 text-4xl font-shamel font-bold text-gray-900 dark:text-white">{{ t('aboutMojamaak.whatIsYourComplex') }}</h2>
+                <p class="mb-7 text-[15px] font-shamel font-[500]">{{ t('aboutMojamaak.complexDescription') }}</p>
                 <a href="#" class="font-shamel text-[13px] text-gray-700 justify-center hover:text-gray-600 inline-flex 
-                    items-center px-4 py-2 rounded-lg border-2 border-gray-300 font-bold
+                    items-center px-4 py-1 rounded-lg border-2 border-gray-300 font-bold
                     dark:text-gray-400 dark:border-gray-600 dark:hover:text-gray-300">
                     {{ t('common.learnMore') }}
                 </a>

@@ -26,7 +26,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h2 class="mb-7 text-lg md:text-xl font-shamel font-bold text-gray-900 dark:text-white">
-                    تتبع الطلبات والمدفوعات بسهولة
+                        {{ t('payments.title') }}
                     </h2>
                     <p
                         class="flex gap-2 items-center mb-7 text-[16px] w-full font-shamel text-[#6d7279] dark:text-white font-[500]">
@@ -36,7 +36,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يتيح نظاما دقيقا لتسجيل المدفوعات وجدولة الدفعات المالية.
+                        {{ t('payments.accurateSystem') }}
                     </p>
                     <p
                         class="flex gap-2 items-center mb-7 text-[16px] w-full font-shamel text-[#6d7279] dark:text-white font-[500]">
@@ -46,7 +46,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يوفر تقارير مالية مفصلة توضح الإيرادات والمدفوعات المتأخرة.
+                        {{ t('payments.detailedReports') }}
                     </p>
 
                     <p
@@ -57,17 +57,14 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يمكن للإداريين تصدر إيصالات الدفع والفواتير بضغطة زر.
+                        {{ t('payments.exportInvoices') }}
                     </p>
 
                 </div>
                 <div data-aos-duration="1700" data-aos="fade-right" class="mx-auto mt-[50px] lg:mt-0 ">
                     <img class="w-full " src="../../assets/aboutFive.png" alt="unkown image">
                 </div>
-
-
             </div>
-
         </div>
     </section>
 </template>

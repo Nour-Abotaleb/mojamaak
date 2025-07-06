@@ -29,7 +29,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </svg>
                     </div>
                     <h2 class="mb-7 text-lg md:text-xl font-shamel font-bold text-gray-900 dark:text-white">
-                        تحسين الصيانة والخدمات
+                        {{ t('maintenance.title') }}
                     </h2>
                     <p
                         class="flex gap-2 items-center mb-7 text-[16px] w-full font-shamel text-[#6d7279] dark:text-white font-[500]">
@@ -39,7 +39,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يسهل إدارة طلبات الصيانة عبر واجهة سهلة الاستخدام
+                         {{ t('maintenance.easyInterface') }}
                     </p>
                     <p
                         class="flex gap-2 items-center mb-7 text-[16px] w-full font-shamel text-[#6d7279] dark:text-white font-[500]">
@@ -49,7 +49,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يتيح تتبع حالة كل طلب ( جديد / قيد التنفيذ / مكتمل ) في لوحة التحكم
+                         {{ t('maintenance.requestStatus') }}
                     </p>
 
                     <p
@@ -60,14 +60,10 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 11.917 9.724 16.5 19 7.5" />
                         </svg>
-                        يمكن للإدارة تعيين شركات صيانة معتمدة بسرعة ومعرفة مدي التزامها بالمواعيد
+                         {{ t('maintenance.assignVendors') }}
                     </p>
-
                 </div>
-
-
             </div>
-
         </div>
     </section>
 </template>

@@ -91,7 +91,7 @@ const testimonials = [
                         {{ t('homeFive.title') }}
                     </h2>
                     <a href="#"
-                        class="mb-5 lg:mb-0 font-shamel text-[13px] text-gray-700 justify-center hover:text-gray-600 inline-flex items-center px-4 py-2 rounded-lg border-2 border-gray-300 font-bold dark:text-gray-400 dark:border-gray-600 dark:hover:text-gray-300">
+                        class="mb-5 lg:mb-0 font-shamel text-[13px] text-gray-700 justify-center hover:text-gray-600 inline-flex items-center px-4 py-1 rounded-lg border-2 border-gray-300 font-bold dark:text-gray-400 dark:border-gray-600 dark:hover:text-gray-300">
 
                         {{ t('homeFive.showAll') }}
                     </a>
@@ -140,7 +140,7 @@ const testimonials = [
                     </h2>
                     <a href="#"
                         class="mb-5 lg:mb-0 font-shamel text-[13px] text-gray-700 
-                        justify-center hover:text-gray-600 inline-flex items-center px-4 py-2 rounded-lg border-2
+                        justify-center hover:text-gray-600 inline-flex items-center px-4 py-1 rounded-lg border-2
                          border-gray-300 font-bold dark:text-gray-400 dark:border-gray-600 dark:hover:text-gray-300">
                         {{ t('partnersSection.showAll') }}
                     </a>

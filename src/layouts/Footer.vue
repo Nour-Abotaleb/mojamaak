@@ -3,6 +3,7 @@ import { onMounted, ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import searchIcon from "../assets/svg/search.svg";
 import { RouterLink } from "vue-router";
+
 const { t, locale } = useI18n();
 const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
 const currentYear = new Date().getFullYear();
@@ -114,7 +115,7 @@ const logoSrc = computed(() => {
           <div class="flex flex-col">
             <h3 class="text-lg font-[500] mb-4 border-b-2 pb-2 border-gray-200 ">
               <!-- {{ t("footer.accessibilityTools") }} -->
-              تحميل التطبيق
+               {{ t('footer.downloadApp') }}
             </h3>
             <div class="flex space-x-4 mb-5 rtl:space-x-reverse">
               <a href="#" class="border p-2 rounded-md">
@@ -206,8 +207,8 @@ const logoSrc = computed(() => {
                 }}</a>
             </div> -->
             <div class="flex gap-6 items-center justify-end">
-              <!-- <img :src="logoSrc" alt="Government Logo" class="h-12 p-1" /> -->
-              <img src="../assets/logo white2.png" alt="Government Logo" class="justify-end items-end flex h-20 p-1" />
+              <img :src="logoSrc" alt="Government Logo" class="h-12 p-1" />
+              <!-- <img src="../assets/logo white2.png" alt="Government Logo" class="justify-end items-end flex h-20 p-1" /> -->
             </div>
           </div>
 
