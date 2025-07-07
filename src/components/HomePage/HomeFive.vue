@@ -1,10 +1,11 @@
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import siteApi from "../../interceptors/SiteInterceptor";
 
 const { t, locale } = useI18n();
 
@@ -61,24 +62,38 @@ const complexes = [
     },
 ];
 
-const testimonials = [
-    // { image: "src/assets/svg 1.svg" },
-    // { image: "src/assets/svg 2.svg" },
-    // { image: "src/assets/svg 3.svg" },
-    { image: "src/assets/svg 4.svg" },
-    { image: "src/assets/svg 5.svg" },
-    { image: "src/assets/svg 6.svg" },
-    { image: "src/assets/svg 7.svg" },
-    { image: "src/assets/svg 8.svg" },
-    { image: "src/assets/svg 9.svg" },
-    { image: "src/assets/svg 4.svg" },
-    { image: "src/assets/svg 5.svg" },
-    { image: "src/assets/svg 6.svg" },
-    { image: "src/assets/svg 7.svg" },
-    { image: "src/assets/svg 8.svg" },
-    { image: "src/assets/svg 9.svg" },
+// const testimonials = [
+//     // { image: "src/assets/svg 1.svg" },
+//     // { image: "src/assets/svg 2.svg" },
+//     // { image: "src/assets/svg 3.svg" },
+//     { image: "src/assets/svg 4.svg" },
+//     { image: "src/assets/svg 5.svg" },
+//     { image: "src/assets/svg 6.svg" },
+//     { image: "src/assets/svg 7.svg" },
+//     { image: "src/assets/svg 8.svg" },
+//     { image: "src/assets/svg 9.svg" },
+//     { image: "src/assets/svg 4.svg" },
+//     { image: "src/assets/svg 5.svg" },
+//     { image: "src/assets/svg 6.svg" },
+//     { image: "src/assets/svg 7.svg" },
+//     { image: "src/assets/svg 8.svg" },
+//     { image: "src/assets/svg 9.svg" },
 
-];
+// ];
+const partners = ref([]);
+
+const fetchPartners = async () => {
+    try {
+        const res = await siteApi.get('/api/home?partners_limit=4');
+        partners.value = res.data.data.partners || [];
+    } catch (error) {
+        console.error('Error fetching partners:', error);
+    }
+}
+
+onMounted(() => {
+    fetchPartners();
+})
 </script>
 
 <template>
@@ -133,6 +148,7 @@ const testimonials = [
                 <div class="swiper-button-prev-custom nav-button"></div>
                 <div class="swiper-button-next-custom nav-button"></div>
             </div>
+            
             <div data-aos-duration="2000" data-aos="fade-down" class="mt-32 font-light text-gray-500 sm:text-lg dark:text-gray-400">
                 <div class="lg:flex-row flex-col flex items-center justify-between w-full">
                     <h2 class="mb-7 text-4xl font-shamel font-bold text-gray-900 dark:text-white">
@@ -161,11 +177,13 @@ const testimonials = [
                     768: { slidesPerView: 6, spaceBetween: 20 },
                     1024: { slidesPerView: 9, spaceBetween: 20 },
                 }" class="mySwiper">
-                    <SwiperSlide v-for="(complex, index) in testimonials" :key="index">
-                        <div
-                            class="bg-white dark:bg-gray-900 dark:border-gray-700 rounded-xl shadow-md border p-3 overflow-hidden">
-                            <img :src="complex.image" alt="Complex Image" class="rounded-xl w-full h-20 object-cover" />
-                        </div>
+                    <SwiperSlide v-for="(partner, index) in partners" :key="index">
+                        <a :href="partner.website_url" target="_black" rel="noopener noreferrer" class="block">
+                            <div
+                                class="bg-white dark:bg-gray-900 dark:border-gray-700 rounded-xl shadow-md border p-3 overflow-hidden">
+                                <img :src="partner.logo" alt="Partner Image" class="rounded-xl w-full h-20 object-cover" />
+                            </div>
+                        </a>
                     </SwiperSlide>
                 </Swiper>
                 <!-- أزرار التنقل المخصصة -->

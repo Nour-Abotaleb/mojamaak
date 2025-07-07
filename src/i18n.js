@@ -91,7 +91,12 @@ const messages = {
       title: "Improve Maintenance and Services",
       easyInterface: "Facilitates maintenance request management via an easy-to-use interface.",
       requestStatus: "Allows tracking the status of each request (New / In Progress / Completed) in the dashboard.",
-      assignVendors: "Enables admins to quickly assign certified maintenance vendors and monitor their punctuality."
+      assignVendors: "Enables admins to quickly assign certified maintenance vendors and monitor their punctuality.",
+      maintenanceTitle: "Authorized Maintenance Companies",
+      maintenanceDescription: "We provide you with a list of the best authorized maintenance companies to easily meet all residential complex needs. Whether you need electrical maintenance, plumbing, air conditioning, or others, you can browse the available companies and contact them directly through the system.",
+      maintenanceLatest: "Latest",
+      maintenanceGeneral: "General Maintenance",
+      maintenanceRequest: "Maintenance Request"
     },
     security: {
       title: "Enhance Security and Control",
@@ -159,6 +164,19 @@ const messages = {
       description:
         "Your Complex relies on the best specialized companies in maintenance and real estate services to ensure the best experience in managing residential complexes.",
       lastUpdate: "Last updated: 04/12/2020 - 4:13 PM Saudi Arabia Time",
+      locationText: "Location:",
+      units: "Available Units",
+      offer: "Available Offers",
+      phoneText: "Phone Number",
+      emailText: "Email",
+      categoryText: "Category",
+      rating: "Rating",
+      location: "Baghdad - Al-Yarmouk District",
+      count: "12 Units",
+      discount: '10% discount on annual rentals',
+      phone: '+964 077 123 7654',
+      email: '9Bb0M@example.com',
+      category: 'Electricity',
     },
     loginPage: {
       login: "Login",
@@ -272,7 +290,12 @@ const messages = {
       title: "تحسين الصيانة والخدمات",
       easyInterface: "يسهل إدارة طلبات الصيانة عبر واجهة سهلة الاستخدام.",
       requestStatus: "يتيح تتبع حالة كل طلب (جديد / قيد التنفيذ / مكتمل) في لوحة التحكم.",
-      assignVendors: "يمكن للإدارة تعيين شركات صيانة معتمدة بسرعة ومعرفة مدى التزامها بالمواعيد."
+      assignVendors: "يمكن للإدارة تعيين شركات صيانة معتمدة بسرعة ومعرفة مدى التزامها بالمواعيد.",
+      maintenanceTitle: "شركات الصيانة المعتمدة",
+      maintenanceDescription: "نوفر لك قائمة بأفضل شركات الصيانة المعتمدة. لتلبية جميع احتياجات المجمعات السكنية بسهولة. سواء كنت بحاجة إلي صيانة كهربائية. سباكة تكييف. أو غيرها. يمكنك استعراض الشركات المتاحة والتواصل معها مباشرة عبر النظام",
+      maintenanceLatest: "الأحدث",
+      maintenanceGeneral: "صيانة عامة",
+       maintenanceRequest: "طلب صيانة"
     },
     security: {
       title: "تعزيز الأمان والتحكم",
@@ -319,7 +342,7 @@ const messages = {
       complexes: "المجمعات السكنية",
       partners: "الشركاء",
       contact: "تواصل معنا",
-      search: "البحث",
+      search: "بحث",
       language: "الإنجليزية",
       theme: "الوضع الليلي",
       login: "تسجيل الدخول"
@@ -340,6 +363,11 @@ const messages = {
       complexDescription:
         "مجمعك هو منصة متكاملة لإدارة المجمعات السكنية. تسهل على الملاك والإداريين إدارة العقارات، السكان، الصيانة، والمدفوعات المالية بكل كفاءة وسهولة",
       personWorking: "شخص يعمل",
+    },
+    aboutMojamaak: {
+      whatIsYourComplex: "ما هو مجمعك؟",
+      complexDescription: "مجمعك هو منصة متكاملة لإدارة المجمعات السكنية. تُسهل على الملاك والمشرفين إدارة العقارات، السكان، الصيانة، والمدفوعات المالية بكفاءة وسهولة.",
+      personWorking: "الشخص العامل"
     },
     common: {
       learnMore: "معرفة المزيد",
@@ -381,6 +409,19 @@ const messages = {
       description:
         "مجمعك يعتمد علي أفضل الشركات المتخصصة في الصيانة والخدمات العقارية لضمان أفضل تجربة لإدارة المجمعات السكنية.",
       lastUpdate: "تاريخ آخر تعديل: 04/12/2020 - 4:13 م بتوقيت السعودية",
+      locationText: "الموقع:",
+      units: "عدد الوحدات المتاحة",
+      offer: "العروض المتوفرة",
+      phoneText: "رقم الهاتف",
+      emailText: "البريد الإلكتروني",
+      categoryText: "التصنيف",
+      rating: "التقييم",
+      location: "بغداد - حي اليرموك",
+      count: '12 وحدة',
+      discount: 'خصم 10% علي الإيجارات السنوية',
+      phone: '+964 077 123 7654',
+      email: '9Bb0M@example.com',
+      category: 'كهرباء',
     },
     loginPage: {
       login: "تسجيل الدخول",

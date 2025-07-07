@@ -1,31 +1,47 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import siteApi from "../../interceptors/SiteInterceptor";
 
 const { t, locale } = useI18n();
 // Sample FAQ data (you can replace this with your own questions and answers)
-const faqs = ref([
-  {
-    question: t("faq.q1"),
-    answer: t("faq.a1"),
-    isOpen: false,
-  },
-  {
-    question: t("faq.q2"),
-    answer: t("faq.a2"), 
-    isOpen: false,
-  },
-  {
-    question: t("faq.q3"), 
-    answer: t("faq.a3"),
-    isOpen: false,
-  },
-  {
-    question: t("faq.q4"),
-    answer:  t("faq.a4"), 
-    isOpen: false,
-  },
-]);
+// const faqs = ref([
+//   {
+//     question: t("faq.q1"),
+//     answer: t("faq.a1"),
+//     isOpen: false,
+//   },
+//   {
+//     question: t("faq.q2"),
+//     answer: t("faq.a2"), 
+//     isOpen: false,
+//   },
+//   {
+//     question: t("faq.q3"), 
+//     answer: t("faq.a3"),
+//     isOpen: false,
+//   },
+//   {
+//     question: t("faq.q4"),
+//     answer:  t("faq.a4"), 
+//     isOpen: false,
+//   },
+// ]);
+
+const faqs = ref([]);
+
+const fetchFaqs = async () => {
+    try {
+        const res = await siteApi.get('/api/home?faqs_limit=5');
+        faqs.value = res.data.data.faqs || [];
+    } catch (error) {
+        console.error('Error fetching partners:', error);
+    }
+}
+
+onMounted(() => {
+    fetchFaqs();
+})
 
 // Function to toggle FAQ open/close state
 const toggleFAQ = (index) => {

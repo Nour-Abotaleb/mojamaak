@@ -83,13 +83,13 @@ const handleClickOutside = (event) => {
   }
 };
 
-onMounted(() => {
-  document.getEventListener("click", handleClickOutside);
-});
+// onMounted(() => {
+//   document.getEventListener("click", handleClickOutside);
+// });
 
-onBeforeUnmount(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
+// onBeforeUnmount(() => {
+//   document.removeEventListener("click", handleClickOutside);
+// });
 </script>
 <template>
   <header>

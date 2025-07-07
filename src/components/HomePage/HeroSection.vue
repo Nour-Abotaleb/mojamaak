@@ -1,35 +1,38 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import siteApi from '../../interceptors/SiteInterceptor';
 
 const { t, locale } = useI18n();
 
 const direction = computed(() => (locale.value === 'ar' ? 'rtl' : 'ltr'));
 const textAlign = computed(() => (locale.value === 'ar' ? 'right' : 'left'));
 
-const slideData = [
-    {
-        image: 'https://www.onlinesociety.co.in/images/vikas6.jpg',
-        titleKey: 'slider.welcome',
-        descriptionKey: 'slider.welcomeDescription',
-    },
-    {
-        image: 'https://www.onlinesociety.co.in/images/vikas6.jpg',
-        titleKey: 'slider.future',
-        descriptionKey: 'slider.futureDescription',
-    },
-    {
-        image: 'https://www.onlinesociety.co.in/images/vikas6.jpg',
-        titleKey: 'slider.creativity',
-        descriptionKey: 'slider.creativityDescription',
-    },
-];
+// const slideData = [
+//     {
+//         image: 'https://www.onlinesociety.co.in/images/vikas6.jpg',
+//         titleKey: 'slider.welcome',
+//         descriptionKey: 'slider.welcomeDescription',
+//     },
+//     {
+//         image: 'https://www.onlinesociety.co.in/images/vikas6.jpg',
+//         titleKey: 'slider.future',
+//         descriptionKey: 'slider.futureDescription',
+//     },
+//     {
+//         image: 'https://www.onlinesociety.co.in/images/vikas6.jpg',
+//         titleKey: 'slider.creativity',
+//         descriptionKey: 'slider.creativityDescription',
+//     },
+// ];
+
+const slideData = ref([]);
 
 const slides = computed(() =>
-    slideData.map((slide) => ({
+    slideData.value.map((slide) => ({
         image: slide.image,
-        title: t(slide.titleKey),
-        description: t(slide.descriptionKey),
+        title: slide.title || t(slide.titleKey),
+        subtitle: slide.subtitle ||t(slide.descriptionKey),
     }))
 );
 
@@ -49,7 +52,15 @@ const goToSlide = (index) => {
 
 let slideInterval;
 
-onMounted(() => {
+onMounted(async () => {
+    try {
+        const res = await siteApi.get('/api/home?sliders_limit=5');
+        slideData.value = res.data.data.sliders || [];
+
+    } catch (error) {
+        console.error('Failed to load sliders:', error);
+    }
+
     slideInterval = setInterval(nextSlide, 99000);
 });
 
@@ -71,7 +82,7 @@ onUnmounted(() => {
                     <div class="px-4 lg:px-12 absolute inset-0 flex flex-col justify-center text-white
                      bg-[rgba(96,198,249,0.8)] dark:bg-[rgba(59,55,52,0.6)]" :style="{ textAlign }">
                         <h2 class="text-4xl lg:text-7xl font-bold mb-4" data-aos="right">{{ slide.title }}</h2>
-                        <p class="text-2xl max-w-2xl">{{ slide.description }}</p>
+                        <p class="text-2xl max-w-2xl">{{ slide.subtitle }}</p>
                     </div>
                 </div>
             </div>

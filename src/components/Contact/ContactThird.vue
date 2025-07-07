@@ -1,24 +1,56 @@
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import siteApi from "../../interceptors/SiteInterceptor";
 
 const { t, locale } = useI18n();
-import { ref } from "vue";
 
-// متغير لتخزين البريد الإلكتروني
+const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
+
+const name = ref("");
 const email = ref("");
+const phone = ref("");
+const content = ref("");
 
-// دالة الاشتراك (يمكنك تعديلها لإرسال البيانات لاحقًا)
 const subscribe = () => {
     if (email.value) {
         alert(`تم الاشتراك بنجاح باستخدام: ${email.value}`);
-        email.value = ""; // إعادة تعيين الحقل بعد الاشتراك
+        email.value = ""; 
     } else {
         alert("يرجى إدخال بريد إلكتروني صحيح");
     }
 };
 
-const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
+// submit contact form 
+const submitContactForm = async () => {
+    if (!name.value || !email.value || !phone.value || !content.value) {
+        alert("يرجى تعبئة جميع الحقول المطلوبة");
+        return;
+    }
+    try {
+        const payload = {
+            name: name.value,
+            email: email.value,
+            phone: phone.value,
+            content: content.value,
+            type: "inquiry"
+        };
+        console.log("Payload:", payload);
+
+        await siteApi.post("/api/contact", payload);
+        alert("تم إرسال البيانات بنجاح!");
+
+        // Clear form
+        name.value = "";
+        email.value = "";
+        phone.value = "";
+        content.value = "";
+
+    } catch (error) {
+        console.error("خطأ أثناء إرسال النموذج:", error);
+        alert("حدث خطأ أثناء الإرسال، حاول مرة أخرى لاحقًا.");
+    }
+}
 </script>
 
 <template>
@@ -40,17 +72,18 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
             </div>
 
             <div class="py-8 px-4 mx-auto max-w-screen-md">
-                <form action="#" class="space-y-8">
-                    <div class="grid grid-cols-2 gap-4">
+                <form @submit.prevent="submitContactForm" class="space-y-8">
+                    <!-- <div class="grid grid-cols-2 gap-4"> -->
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-[#44465f] dark:text-gray-300">
-                                الاسم الأول
+                                الاسم الكامل
                                 <span class="text-[#38a6de] text-[18px]">*</span></label>
                             <input type="name" id="name"
+                                v-model="name"
                                 class="shadow-sm bg-white border border-gray-300 text-[#44465f] text-sm rounded-lg focus:ring-ornage-500 focus:border-ornage-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-ornage-500 dark:focus:border-ornage-500 dark:shadow-sm-light"
                                 placeholder="أدخل اسمك هنا" required />
                         </div>
-                        <div>
+                        <!-- <div>
                             <label for="lastname"
                                 class="flex mb-2 text-sm font-medium text-[#44465f] dark:text-gray-300">
                                 الاسم الأخير
@@ -58,13 +91,14 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             <input type="name" id="name"
                                 class="shadow-sm bg-white border border-gray-300 text-[#44465f] text-sm rounded-lg focus:ring-ornage-500 focus:border-ornage-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-ornage-500 dark:focus:border-ornage-500 dark:shadow-sm-light"
                                 placeholder="أدخل اسمك هنا" required />
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-[#44465f] dark:text-gray-300">
                             البريد الإلكتروني
                             <span class="text-[#38a6de] text-[18px]">*</span></label>
-                        <input type="name" id="name"
+                        <input type="email" id="email"
+                            v-model="email"
                             class="shadow-sm mt-0 bg-white border border-gray-300 text-[#44465f] text-sm rounded-lg focus:ring-ornage-500 focus:border-ornage-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-ornage-500 dark:focus:border-ornage-500 dark:shadow-sm-light"
                             placeholder="example@email.com" required />
                     </div>
@@ -74,6 +108,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                         </label>
                         <div class="flex items-center gap-2">
                             <input type="tel" id="phone"
+                                v-model="phone"
                                 class="ltr:text-left rtl:text-right shadow-sm mt-0 bg-white border border-gray-300 text-[#44465f] text-sm rounded-lg focus:ring-ornage-500 focus:border-ornage-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-ornage-500 dark:focus:border-ornage-500 dark:shadow-sm-light"
                                 placeholder="000-000-555" required />
                             <select id="country-code"
@@ -284,6 +319,7 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                             نص الرسالة <span class="text-[#38a6de] text-[18px]">*</span>
                         </label>
                         <textarea id="message" rows="6"
+                            v-model="content"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg shadow-sm border border-gray-300 focus:ring-ornage-500 focus:border-ornage-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-ornage-500 dark:focus:border-ornage-500"
                             placeholder="اكتب رسالتك هنا..."></textarea>
                     </div>
@@ -306,12 +342,12 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                 </form>
             </div>
 
-            <div class="bg-gray-100 py-12 mb-[100px] px-4 sm:px-6 lg:px-8 font-shamel">
+            <div class="bg-[#F3F4F6] dark:bg-[#111827] py-12 mb-[100px] px-4 sm:px-6 lg:px-8 font-shamel">
                 <div class=" mx-auto text-center flex justify-between flex-col md:flex-row">
                     <!-- العنوان الرئيسي -->
 
                     <div class="text-right flex flex-col justify-center">
-                        <h2 class="text-3xl font-bold text-gray-800 mb-2">
+                        <h2 class="text-3xl font-bold dark:text-white mb-2">
                             انضم إلى مجتمعنا
                         </h2>
                         <!-- الوصف -->
@@ -332,10 +368,9 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
                                 اشترك الآن
                             </button>
                         </form>
-                        <p class=" text-[#38a6de] hover:underline ">
+                        <p class=" text-[#38a6de] hover:underline mt-4">
                             We care about your data in our
-                            <span class="underline">privacy
-                                policy.</span>
+                            <span class="underline">privacy policy.</span>
                         </p>
                     </div>
 
@@ -345,4 +380,3 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
     </section>
 </template>
 
-<style scoped></style>

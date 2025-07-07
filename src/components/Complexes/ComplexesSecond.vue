@@ -1,83 +1,100 @@
 <script setup>
-import { ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import siteApi from "../../interceptors/SiteInterceptor";
 
 const { t, locale } = useI18n();
 
-const cards = ref([
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
-  },
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500",
-  },
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500",
-  },
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500",
-  },
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
-  },
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
-  },
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
-  },
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
-  },
-  {
-    title: "مجمع النخيل السكني",
-    location: "بغداد - حي اليرموك",
-    count: "12 وحدة",
-    discount: "خصم 10% علي الإيجارات السنوية",
-    image:
-      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
-  },
-]);
+const complexes = ref([]);
+
+const fetchComplexes = async () => {
+    try {
+        const res = await siteApi.get('/api/complexes?per_page=10&page=1');
+        complexes.value = res.data.data.complexes || [];
+
+    } catch (error) {
+        console.error('Error fetching complexes:', error);
+    }
+};
+
+onMounted(() => {
+    fetchComplexes();
+});
+
+// const cards = ref([
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
+//   },
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500",
+//   },
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500",
+//   },
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500",
+//   },
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
+//   },
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
+//   },
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
+//   },
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
+//   },
+//   {
+//     title: "مجمع النخيل السكني",
+//     location: "بغداد - حي اليرموك",
+//     count: "12 وحدة",
+//     discount: "خصم 10% علي الإيجارات السنوية",
+//     image:
+//       "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=500",
+//   },
+// ]);
 </script>
 
 <template>
@@ -91,37 +108,39 @@ const cards = ref([
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 font-shamel"
       >
         <div
-          v-for="(card, index) in cards"
+          v-for="(complex, index) in complexes"
           :key="index"
           class="card bg-white dark:bg-gray-900 dark:border-gray-700 font-[500] border rounded-xl overflow-hidden"
         >
-          <img
-            :src="card.image"
-            alt="Card Image"
+         <!-- <div v-for="img in complex.images" :key="img.id"> -->
+           <img
+            :src="complex.images[2].image_path"
+            alt="Complex Image"
             class="w-full h-48 object-cover rounded-xl"
           />
+         <!-- </div> -->
           <div class="p-4">
             <h3 class="text-lg font-bold mb-2 text-right dark:text-white">
-              {{ card.title }}
+              {{ complex.name }}
             </h3>
             <p class="text-gray-600 dark:text-white text-sm text-right mt-5">
-              الموقع :
+              {{ t('partnersSection.locationText') }}
               <span class="text-black dark:text-gray-200">
-                {{ card.location }}
+                {{ complex.location }}
               </span>
             </p>
-            <p class="text-gray-600 dark:text-white text-sm text-right">
-              عدد الوحدات المتاحة :
+            <!-- <p class="text-gray-600 dark:text-white text-sm text-right">
+                {{ t('partnersSection.units') }}:
               <span class="text-black dark:text-gray-200">
                 {{ card.count }}
               </span>
-            </p>
-            <p class="text-gray-600 dark:text-white text-sm text-right">
-              العروض المتوفرة :
+            </p> -->
+            <!-- <p class="text-gray-600 dark:text-white text-sm text-right">
+               {{ t('partnersSection.offer') }}:
               <span class="text-black dark:text-gray-200">
                 {{ card.discount }}
               </span>
-            </p>
+            </p> -->
             <button
               class="mt-4 bg-transparent border border-[#d8dade] dark:border-gray-700 dark:text-gray-300 text-[#636770] font-bold hover:bg-gray-100 gap-3 dark:hover:bg-gray-700 py-3 px-4 rounded-lg w-auto flex items-center justify-center mx-auto"
             >
