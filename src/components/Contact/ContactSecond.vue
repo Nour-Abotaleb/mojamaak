@@ -1,4 +1,7 @@
 <script setup>
+import { useI18n } from "vue-i18n";
+
+const { t, locale } = useI18n();
 </script>
 
 <template>
@@ -14,8 +17,8 @@
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 my-2 dark:text-white">رقم الهاتف</h3>
-                <p class="text-gray-600 mb-5 dark:text-gray-400">من الإثنين إلي الجمعة 8 صباحا حتي 5 مساءا</p>
+                <h3 class="text-xl font-semibold text-gray-800 my-2 dark:text-white">{{ t('partnersSection.phoneText') }}</h3>
+                <p class="text-gray-600 mb-5 dark:text-gray-400">{{ t('contact.workingDays') }}</p>
                 <a href="tel:+9647701234567" class="text-[#38a6de] hover:underline">+964 770 123 4567</a>
             </div>
 
@@ -33,8 +36,8 @@
                             stroke="#38a6de" stroke-width="1.5" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 my-2 dark:text-white">المكتب الرئيسي</h3>
-                <p class="text-gray-600 mb-5 dark:text-white">مرحبا بك في مقرنا الرئيسي </p>
+                <h3 class="text-xl font-semibold text-gray-800 my-2 dark:text-white">{{ t('contact.headOffice') }}</h3>
+                <p class="text-gray-600 mb-5 dark:text-white">{{ t('contact.welcomeHeadOffice') }}</p>
                 <p class="text-[#38a6de] hover:underline">شارع XYZ. بغداد العراق </p>
             </div>
             <div class="bg-white dark:bg-gray-900  rounded-lg p-6 flex flex-col items-center text-center">
@@ -50,8 +53,8 @@
                             stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 my-2 dark:text-white">البريد الإلكتروني</h3>
-                <p class="text-gray-600 mb-5 dark:text-white">فريقنا الودود هنا لمساعدتك </p>
+                <h3 class="text-xl font-semibold text-gray-800 my-2 dark:text-white">{{ t('partnersSection.emailText') }}</h3>
+                <p class="text-gray-600 mb-5 dark:text-white">{{ t('contact.ourTeam') }}</p>
                 <a href="mailto:support@mogamak.com" class="text-[#38a6de] hover:underline">support@mogamak.com</a>
             </div>
 

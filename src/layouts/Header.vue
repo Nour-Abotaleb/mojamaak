@@ -1,8 +1,15 @@
 <script setup>
-import { onMounted, onBeforeUnmount, ref, computed } from "vue";
+import { onMounted, ref, computed, watchEffect } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { t, locale } = useI18n();
+const showDropdown = ref(false);
+const languages = ref([]);
+
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value;
+};
+
 onMounted(() => {
   const lang = locale.value;
   document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
@@ -44,18 +51,46 @@ const toggleTheme = () => {
   }
 };
 
-const toggleLanguage = () => {
+// const toggleLanguage = () => {
+//   try {
+//     const languages = ['en', 'ar', 'ku'];
+//     const currentIndex = languages.indexOf(locale.value);
+//     const nextIndex = (currentIndex + 1) % languages.length;
+
+//     // locale.value = locale.value === "en" ? "ar" : "en";
+//     locale.value = languages[nextIndex];
+//     localStorage.setItem("language", locale.value);
+//     document.documentElement.setAttribute(
+//       "dir",
+//       // locale.value === "ar" || locale.value === "ku" ? "rtl" : "ltr"
+//       ['ar', 'ku'].includes(locale.value) ?  'rtl' : 'ltr'
+//     );
+//   } catch (error) {
+//     console.error("Error in toggleLanguage:", error);
+//   }
+// };
+
+const toggleLanguage = (lang) => {
   try {
-    locale.value = locale.value === "en" ? "ar" : "en";
-    localStorage.setItem("language", locale.value);
+    locale.value = lang;
+    localStorage.setItem("language", lang);
     document.documentElement.setAttribute(
       "dir",
-      locale.value === "ar" ? "rtl" : "ltr"
+      ['ar', 'ku'].includes(lang) ? 'rtl' : 'ltr'
     );
+    showDropdown.value = false;
   } catch (error) {
     console.error("Error in toggleLanguage:", error);
   }
 };
+
+watchEffect(() => {
+  languages.value = [
+    { code: "en", label: t("nav.language.en") },
+    { code: "ar", label: t("nav.language.ar") },
+    { code: "ku", label: t("nav.language.ku") },
+];
+})
 
 const logoSrc = computed(() => {
   if (isDark.value) {
@@ -76,20 +111,11 @@ const toggleSearch = () => {
   showSearchInput.value = !showSearchInput.value;
 };
 
-// close search on click outside
-const handleClickOutside = (event) => {
-  if (searchRef.value && !searchRef.value.contains(event.target)) {
-    showSearchInput.value = false;
-  }
-};
-
-// onMounted(() => {
-//   document.getEventListener("click", handleClickOutside);
-// });
-
-// onBeforeUnmount(() => {
-//   document.removeEventListener("click", handleClickOutside);
-// });
+// Get current selected label
+const currentLanguageLabel = computed(() => {
+  const found = languages.value.find((lang) => lang.code === locale.value);
+  return found ? found.label : locale.value;
+})
 </script>
 <template>
   <header>
@@ -244,8 +270,8 @@ const handleClickOutside = (event) => {
               }}</span>
             </span>
           </label>
-
-          <a
+          <!-- Toggle Languages -->
+          <!-- <a
             href="#"
             @click.prevent="toggleLanguage"
             class="lg:flex hidden gap-2 items-center text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-2 py-2 ms-2 me-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
@@ -268,7 +294,50 @@ const handleClickOutside = (event) => {
                 d="m13 19 3.5-9 3.5 9m-6.125-2h5.25M3 7h7m0 0h2m-2 0c0 1.63-.793 3.926-2.239 5.655M7.5 6.818V5m.261 7.655C6.79 13.82 5.521 14.725 4 15m3.761-2.345L5 10m2.761 2.655L10.2 15"
               />
             </svg>
-          </a>
+          </a> -->
+
+        <div class="relative inline-block text-left">
+          <!-- Toggle Button -->
+          <button
+            @click="toggleDropdown"
+            class="lg:flex hidden gap-2 items-center text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-2 py-2 ms-2 me-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+          >
+            {{ currentLanguageLabel }}
+            <svg
+              class="w-5 h-5 text-gray-800 dark:text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div
+            v-if="showDropdown"
+            class="absolute right-0 mt-2 w-36 origin-top-right rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+          >
+            <div class="py-1">
+              <a
+                v-for="lang in languages"
+                :key="lang.code"
+                href="#"
+                @click.prevent="toggleLanguage(lang.code)"
+                class="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                {{ lang.label }}
+              </a>
+            </div>
+          </div>
+        </div>
+
           <div class="bg-[#38A6DE] text-white py-1 px-3 rounded">
             <router-link to="/mojamaak/login">
               <button class="text-sm font-medium">{{ t("nav.login") }}</button>

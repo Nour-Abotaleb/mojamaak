@@ -13,15 +13,16 @@ const direction = computed(() => (locale.value === "ar" ? "rtl" : "ltr"));
         <div class="pt-8 px-4 mx-auto max-w-screen-xl sm:pt-20 lg:px-6">
             <div class="max-w-screen-md mx-auto">
                 <h6 class="text-center font-shamel mb-5 text-sm font-bold text-[#38a6de] dark:text-white">
-                    تواصل معنا</h6>
+                    {{ t('contact.contactUs') }}</h6>
 
                 <h2
                     class="font-shamel text-center mb-6 text-2xl md:text-4xl  tracking-tight font-extrabold text-gray-900 dark:text-white">
-                    نحن نحب أن نسمع منك </h2>
+                    {{ t('contact.weLoveToHearFromYou') }}
+                </h2>
                 <p
                     class="font-shamel text-center mb-7 text-lg tracking-tight font-medium text-gray-600 dark:text-white">
-                    هل لديك استفسارات أو تواجه أي مشكلات؟ لا تتردد في التواصل مع فريق الدعم. وسنكون سعداء بمساعدتك في
-                    أسرع وقت ممكن</p>
+                    {{ t('contact.haveQuestions') }}
+                </p>
             </div>
         </div>
     </section>

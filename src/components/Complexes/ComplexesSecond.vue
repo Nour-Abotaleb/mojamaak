@@ -112,13 +112,16 @@ onMounted(() => {
           :key="index"
           class="card bg-white dark:bg-gray-900 dark:border-gray-700 font-[500] border rounded-xl overflow-hidden"
         >
-         <!-- <div v-for="img in complex.images" :key="img.id"> -->
-           <img
+           <!-- <img
             :src="complex.images[2].image_path"
             alt="Complex Image"
             class="w-full h-48 object-cover rounded-xl"
+          /> -->
+           <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500"
+            alt="Complex Image"
+            class="w-full h-48 object-cover rounded-xl"
           />
-         <!-- </div> -->
           <div class="p-4">
             <h3 class="text-lg font-bold mb-2 text-right dark:text-white">
               {{ complex.name }}
@@ -129,18 +132,18 @@ onMounted(() => {
                 {{ complex.location }}
               </span>
             </p>
-            <!-- <p class="text-gray-600 dark:text-white text-sm text-right">
+            <p class="text-gray-600 dark:text-white text-sm text-right">
                 {{ t('partnersSection.units') }}:
               <span class="text-black dark:text-gray-200">
-                {{ card.count }}
+                {{ t('partnersSection.count') }}
               </span>
-            </p> -->
-            <!-- <p class="text-gray-600 dark:text-white text-sm text-right">
+            </p>
+            <p class="text-gray-600 dark:text-white text-sm text-right">
                {{ t('partnersSection.offer') }}:
               <span class="text-black dark:text-gray-200">
-                {{ card.discount }}
+                {{ t('partnersSection.discount') }}
               </span>
-            </p> -->
+            </p>
             <button
               class="mt-4 bg-transparent border border-[#d8dade] dark:border-gray-700 dark:text-gray-300 text-[#636770] font-bold hover:bg-gray-100 gap-3 dark:hover:bg-gray-700 py-3 px-4 rounded-lg w-auto flex items-center justify-center mx-auto"
             >

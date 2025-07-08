@@ -58,16 +58,16 @@ const submitContactForm = async () => {
         <div class="pt-8 px-4 mx-auto max-w-screen-xl sm:pt-20 lg:px-6">
             <div class="max-w-screen-md mx-auto">
                 <h6 class="text-center font-shamel mb-5 text-sm font-bold text-[#38a6de] dark:text-white">
-                    تواصل معنا
+                     {{ t('contact.contactUs') }}
                 </h6>
 
                 <h2
                     class="font-shamel text-center mb-6 text-2xl md:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                    نموذج التواصل
+                     {{ t('contact.contactForm') }}
                 </h2>
                 <p
                     class="font-shamel text-center mb-7 text-lg tracking-tight font-medium text-gray-600 dark:text-white">
-                    نود أن نسمع منك! يرجي ملء النموذج أدناه
+                {{ t('contact.weWantToHearFromYou') }}
                 </p>
             </div>
 
@@ -76,12 +76,12 @@ const submitContactForm = async () => {
                     <!-- <div class="grid grid-cols-2 gap-4"> -->
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-[#44465f] dark:text-gray-300">
-                                الاسم الكامل
+                                 {{ t('contact.fullName') }}
                                 <span class="text-[#38a6de] text-[18px]">*</span></label>
                             <input type="name" id="name"
                                 v-model="name"
                                 class="shadow-sm bg-white border border-gray-300 text-[#44465f] text-sm rounded-lg focus:ring-ornage-500 focus:border-ornage-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-ornage-500 dark:focus:border-ornage-500 dark:shadow-sm-light"
-                                placeholder="أدخل اسمك هنا" required />
+                                :placeholder="t('contact.enterName')" required />
                         </div>
                         <!-- <div>
                             <label for="lastname"
@@ -95,7 +95,7 @@ const submitContactForm = async () => {
                     <!-- </div> -->
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-[#44465f] dark:text-gray-300">
-                            البريد الإلكتروني
+                             {{ t('partnersSection.emailText') }}
                             <span class="text-[#38a6de] text-[18px]">*</span></label>
                         <input type="email" id="email"
                             v-model="email"
@@ -104,7 +104,7 @@ const submitContactForm = async () => {
                     </div>
                     <div>
                         <label for="phone" class="block mb-2 text-sm font-medium text-[#44465f] dark:text-gray-300">
-                            رقم الهاتف <span class="text-[#38a6de] text-[18px]">*</span>
+                             {{ t('partnersSection.phoneText') }} <span class="text-[#38a6de] text-[18px]">*</span>
                         </label>
                         <div class="flex items-center gap-2">
                             <input type="tel" id="phone"
@@ -316,12 +316,12 @@ const submitContactForm = async () => {
 
                     <div class="sm:col-span-2">
                         <label for="phone" class="block mb-2 text-sm font-medium text-[#44465f] dark:text-gray-300">
-                            نص الرسالة <span class="text-[#38a6de] text-[18px]">*</span>
+                             {{ t('contact.content') }} <span class="text-[#38a6de] text-[18px]">*</span>
                         </label>
                         <textarea id="message" rows="6"
                             v-model="content"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg shadow-sm border border-gray-300 focus:ring-ornage-500 focus:border-ornage-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-ornage-500 dark:focus:border-ornage-500"
-                            placeholder="اكتب رسالتك هنا..."></textarea>
+                            :placeholder="t('contact.writeMessage')"></textarea>
                     </div>
                     <div class="flex items-center gap-2">
                         <div class="flex items-center h-5">
@@ -330,14 +330,14 @@ const submitContactForm = async () => {
                                 required="" />
                         </div>
                         <div class="ml-3 text-sm">
-                            <label for="terms" class="font-light text-gray-500 dark:text-gray-300">أوافق على<a
+                            <label for="terms" class="font-light text-gray-500 dark:text-gray-300">{{ t('contact.agree') }}<a
                                     class="font-medium text-ornage-600 hover:underline dark:text-ornage-500" href="#">
-                                    الشروط والأحكام</a></label>
+                                     {{ t('contact.privacyPolicy') }}</a></label>
                         </div>
                     </div>
                     <button type="submit"
                         class="py-3 px-5 text-sm font-medium !w-full text-center text-white rounded-lg bg-[#38a6de] sm:w-fit hover:bg-ornage-800 focus:ring-4 focus:outline-none focus:ring-ornage-300 dark:bg-ornage-600 dark:hover:bg-ornage-700 dark:focus:ring-ornage-800">
-                        إرسال الرسالة
+                         {{ t('contact.send') }}
                     </button>
                 </form>
             </div>
@@ -348,32 +348,30 @@ const submitContactForm = async () => {
 
                     <div class="text-right flex flex-col justify-center">
                         <h2 class="text-3xl font-bold dark:text-white mb-2">
-                            انضم إلى مجتمعنا
+                            {{ t('contact.joinCommunity') }}
                         </h2>
                         <!-- الوصف -->
                         <p class="text-lg text-gray-600 mb-6">
-                            ابق علي اطلاع بكل جديد لدينا. </p>
+                            {{ t('contact.stayUpdated') }}
+                        </p>
                         <!-- النموذج -->
                     </div>
-
                     <div>
-
                         <form @submit.prevent="subscribe" class="flex justify-center items-start gap-4 mb-1">
-                            <input v-model="email" type="email" placeholder="أدخل بريدك الإلكتروني..."
+                            <input v-model="email" type="email" :placeholder="t('contact.enterEmail')"  
                                 class="w-full max-w-md px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
                                 required />
                             <button type="submit"
-                                class="w-[140px] md:w-[165px] px-1 md:px-3 py-3 bg-[#38a6de] text-white font-medium rounded-lg
+                                class="min-w-[130px] py-3 bg-[#38a6de] text-white font-medium rounded-lg
                                  hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                اشترك الآن
+                                 {{ t('contact.subscribeNow') }}
                             </button>
                         </form>
                         <p class=" text-[#38a6de] hover:underline mt-4">
-                            We care about your data in our
-                            <span class="underline">privacy policy.</span>
+                            {{ t('contact.privacy') }}
+                            <!-- <span class="underline">{{ t('contact.policy') }}.</span> -->
                         </p>
                     </div>
-
                 </div>
             </div>
         </div>
