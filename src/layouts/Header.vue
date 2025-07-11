@@ -1,10 +1,13 @@
 <script setup>
 import { onMounted, ref, computed, watchEffect } from "vue";
 import { useI18n } from "vue-i18n";
+import mitt from 'mitt';
 
 const { t, locale } = useI18n();
 const showDropdown = ref(false);
 const languages = ref([]);
+const emitter = mitt();
+
 
 const toggleDropdown = () => {
   showDropdown.value = !showDropdown.value;
@@ -73,16 +76,29 @@ const toggleTheme = () => {
 const toggleLanguage = (lang) => {
   try {
     locale.value = lang;
-    localStorage.setItem("language", lang);
+    localStorage.setItem("lang", lang);
     document.documentElement.setAttribute(
       "dir",
       ['ar', 'ku'].includes(lang) ? 'rtl' : 'ltr'
     );
+    emitter.emit('langChanged', lang);
     showDropdown.value = false;
+
   } catch (error) {
     console.error("Error in toggleLanguage:", error);
   }
 };
+
+// Set initial language and dir from localStorage
+onMounted(() => {
+  const saveLang = localStorage.getItem('lang') || 'en';
+  locale.value = saveLang;
+
+  document.documentElement.setAttribute(
+    "dir",
+    ['ar', 'ku'].includes(saveLang) ? 'rtl' : 'ltr'
+  );
+});
 
 watchEffect(() => {
   languages.value = [
@@ -115,7 +131,9 @@ const toggleSearch = () => {
 const currentLanguageLabel = computed(() => {
   const found = languages.value.find((lang) => lang.code === locale.value);
   return found ? found.label : locale.value;
-})
+});
+
+defineExpose({ emitter }); 
 </script>
 <template>
   <header>

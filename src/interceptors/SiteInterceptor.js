@@ -9,7 +9,7 @@ const siteApi = axios.create({
     'Accept-Encoding': 'gzip, deflate, br',
     'Connection': 'keep-alive',
     'User-Agent': 'PostmanRuntime/7.44.1',
-    'accept-language': 'ar',
+    // 'accept-language': 'ar',
     // 'Authorization': `Bearer ${token}`,
   },
 });
@@ -18,10 +18,13 @@ const siteApi = axios.create({
 siteApi.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
+    const lang = localStorage.getItem('lang') || 'en';
+
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    config.headers["lang"] = localStorage.getItem("lang");
+    config.headers["lang"] = lang;
+    config.headers['accept-language'] = lang;
     return config;
   },
   (error) => Promise.reject(error)

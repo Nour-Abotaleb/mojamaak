@@ -1,12 +1,35 @@
 <script setup>
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
+import siteApi from "../interceptors/SiteInterceptor";
+import { useRouter } from "vue-router";
 
 const { t } = useI18n();
 const email = ref("");
 const password = ref("");
+const router = useRouter();
 
-const handleLogin = () => {};
+const login = async() => {
+  try {
+    const response = await siteApi.post('/api/dashboard/complex-admin/login', {
+      email: email.value,
+      password: password.value || '12345678',
+    })
+
+    if (response.data.code === 200) {
+      const { token, admin } = response.data.data
+      localStorage.setItem('token', token);
+      localStorage.setItem('admin', JSON.stringify(admin))
+
+      router.push('/dashboard')
+    } else {
+      alert('Login failed')
+    }
+  } catch (err) {
+    alert('Error during login: ' + err.message)
+  }
+  
+};
 </script>
 
 <template>
@@ -20,7 +43,7 @@ const handleLogin = () => {};
         {{ t("loginPage.login") }}
       </h2>
 
-      <form @submit.prevent="handleLogin" class="space-y-4">
+      <form @submit.prevent="login" class="space-y-4">
         <!-- Email -->
         <div>
           <label

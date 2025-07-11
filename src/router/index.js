@@ -12,7 +12,7 @@ import ForgotPassword from "../Pages/ForgotPassword.vue";
 import ResetPassword from "../Pages/ResetPassword.vue";
 
 // Admin Routes
-import adminRoutes from './admin.js'
+import mojamaakRoutes from './mojamaak.js'
 const publicRoutes = [
     {
         path: "/",
@@ -102,7 +102,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         ...publicRoutes,
-        ...adminRoutes
+        ...mojamaakRoutes,
     ],
 });
 
