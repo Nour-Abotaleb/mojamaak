@@ -30,7 +30,7 @@ const toggleIndividual = () => {
       </div>
     </div>
 
-      <div class="relative flex gap-2 items-center">
+      <div class="relative flex gap-2 items-center mb-2">
         <div class="border border-gray-400 rounded px-6 py-1.5 text-gray-400">Filter</div>
         <input
           type="text"

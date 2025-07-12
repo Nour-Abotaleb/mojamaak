@@ -51,53 +51,52 @@
       <input type="text" class="w-full border rounded px-3 py-3 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="مجمع فاخر بمرافق متكاملة" />
     </div>
 
-<!-- Logo & Main Image -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-  <!-- Logo -->
-  <div>
-    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">شعار المجمع *</label>
-    <div class="flex items-center gap-2">
-      <div
-        class="w-full h-32 rounded border dark:border-gray-500 bg-center bg-cover bg-no-repeat bg-gray-100 dark:bg-gray-700"
-        :style="{ backgroundImage: 'url(/uploads/logo.png)' }"
-      ></div>
-      <div class="flex flex-col gap-2">
-        <button class="text-gray-500 dark:text-gray-300 hover:text-blue-500"><i class="fas fa-pen"></i></button>
-        <button class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+    <!-- Logo & Main Image -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <!-- Logo -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">شعار المجمع *</label>
+        <div class="flex items-center gap-2">
+          <div
+            class="w-full h-32 rounded border dark:border-gray-500 bg-center bg-cover bg-no-repeat bg-gray-100 dark:bg-gray-700"
+            :style="{ backgroundImage: 'url(/uploads/logo.png)' }"
+          ></div>
+          <div class="flex flex-col gap-2">
+            <button class="text-gray-500 dark:text-gray-300 hover:text-blue-500"><i class="fas fa-pen"></i></button>
+            <button class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Main Image -->
-  <div>
-    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الصورة الأساسية *</label>
-    <div class="flex items-center gap-2">
-      <div
-        class="w-full h-32 rounded border dark:border-gray-500 bg-center bg-cover bg-no-repeat bg-gray-100 dark:bg-gray-700"
-        :style="{ backgroundImage: 'url(/uploads/main.jpg)' }"
-      ></div>
-      <div class="flex flex-col gap-2">
-        <button class="text-gray-500 dark:text-gray-300 hover:text-blue-500"><i class="fas fa-pen"></i></button>
-        <button class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+      <!-- Main Image -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الصورة الأساسية *</label>
+        <div class="flex items-center gap-2">
+          <div
+            class="w-full h-32 rounded border dark:border-gray-500 bg-center bg-cover bg-no-repeat bg-gray-100 dark:bg-gray-700"
+            :style="{ backgroundImage: 'url(/uploads/main.jpg)' }"
+          ></div>
+          <div class="flex flex-col gap-2">
+            <button class="text-gray-500 dark:text-gray-300 hover:text-blue-500"><i class="fas fa-pen"></i></button>
+            <button class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Sub Images -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الصور الفرعية *</label>
+        <div class="grid grid-cols-4 gap-2">
+          <div
+            v-for="n in 8"
+            :key="n"
+            class="relative w-full h-[3.75rem] rounded border dark:border-gray-500 bg-center bg-cover bg-no-repeat bg-gray-100 dark:bg-gray-700"
+            :style="{ backgroundImage: `url(/uploads/sub${n}.jpg)` }"
+          >
+      
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Sub Images -->
-  <div>
-    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الصور الفرعية *</label>
-    <div class="grid grid-cols-4 gap-2">
-      <div
-        v-for="n in 8"
-        :key="n"
-        class="relative w-full h-[3.75rem] rounded border dark:border-gray-500 bg-center bg-cover bg-no-repeat bg-gray-100 dark:bg-gray-700"
-        :style="{ backgroundImage: `url(/uploads/sub${n}.jpg)` }"
-      >
-   
-      </div>
-    </div>
-  </div>
-</div>
-
 </div>
 </template>
 
