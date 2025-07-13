@@ -89,12 +89,13 @@ const login = async() => {
 
         <!-- Submit -->
         <div>
-          <button
+          <router-link
+            to="/dashboard"
             type="submit"
-            class="w-full bg-[#38A6DE] text-white py-2 rounded-md"
+            class="w-full bg-[#38A6DE] text-white py-2 rounded-md px-2"
           >
             {{ t("loginPage.signin") }}
-          </button>
+          </router-link>
         </div>
       </form>
     </div>
