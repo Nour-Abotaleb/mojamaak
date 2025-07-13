@@ -21,7 +21,7 @@ const toggleIndividual = () => {
 </script>
 
 <template>
-  <div class="bg-white dark:bg-[#1F2937] p-6 shadow-md">
+  <div class="bg-white dark:bg-[#1F2937] p-6 shadow-md overflow-x-auto">
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
       <div>
